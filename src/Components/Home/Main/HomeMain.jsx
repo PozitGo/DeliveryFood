@@ -17,7 +17,7 @@ const HomeMain = () => {
               <p>курьер в перчатках, маске и с антисептиком</p>
             </section>
           </div>
-          <img src={PizzaBanner} />
+          <img src={PizzaBanner} about="Banner" />
         </section>
       </div>
 
@@ -25,7 +25,7 @@ const HomeMain = () => {
         <section className={styles.RestaurantHeader}>
           <h1>Рестораны</h1>
           <section className={styles.RestaurantSearch}>
-            <img src={Search} />
+            <img src={Search} alt="Search" />
             <input placeholder="Поиск блюд и ресторанов" />
           </section>
         </section>
