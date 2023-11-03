@@ -1,4 +1,5 @@
 import styles from "./Header.module.css";
+import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import AuthModal from "../AuthModal/AuthModal";
 import Cart from "../Cart/Cart";
 import { NavLink } from "react-router-dom";
@@ -11,6 +12,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { logout } from "../../Store/loginSlice";
 import { useSelector } from "react-redux";
+import { useEffect } from "react";
 
 const Header = () => {
   const UserName = useSelector((state) => state.login.UserName);
@@ -18,6 +20,14 @@ const Header = () => {
   const [IsAuth, setIsAuth] = useState(false);
   const [isOpenCart, setOpenCart] = useState(false);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (IsOpenAuth && !IsAuth) {
+      disableBodyScroll(document.body);
+    } else {
+      enableBodyScroll(document.body);
+    }
+  }, [IsOpenAuth, IsAuth]);
 
   const openCart = () => {
     setOpenCart(true);
