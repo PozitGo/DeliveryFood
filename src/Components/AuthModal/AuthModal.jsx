@@ -24,7 +24,6 @@ const AuthModal = (props) => {
       setValid(true);
       handleLogin();
       closeModal();
-      props.IsAuth(true);
     } else {
       setValid(false);
     }

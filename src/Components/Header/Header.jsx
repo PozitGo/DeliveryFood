@@ -7,27 +7,26 @@ import Logo from "../../Images/logo.png";
 import Home from "../../Images/home.png";
 import User from "../../Images/user.png";
 import CartImage from "../../Images/cart.png";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { Navigate } from "react-router-dom";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../Store/loginSlice";
-import { useSelector } from "react-redux";
-import { useEffect } from "react";
 
 const Header = () => {
+  const isLogin = useSelector((state) => state.login.isLogin);
   const UserName = useSelector((state) => state.login.UserName);
   const [IsOpenAuth, setOpenAuth] = useState(false);
-  const [IsAuth, setIsAuth] = useState(false);
   const [isOpenCart, setOpenCart] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (IsOpenAuth && !IsAuth) {
+    if (IsOpenAuth && !isLogin) {
       disableBodyScroll(document.body);
     } else {
       enableBodyScroll(document.body);
     }
-  }, [IsOpenAuth, IsAuth]);
+  }, [IsOpenAuth, isLogin]);
 
   const openCart = () => {
     setOpenCart(true);
@@ -41,9 +40,9 @@ const Header = () => {
     setOpenAuth(true);
   };
 
-  const handleLogin = () => {
+  const handleLogout = () => {
     dispatch(logout());
-    setIsAuth(false);
+    <Navigate to="/DeliveryFood" replace />;
   };
 
   const closeAuthModal = () => {
@@ -64,25 +63,21 @@ const Header = () => {
         <input placeholder="Адрес доставки" />
       </section>
 
-      {IsAuth && <p className={styles.UserName}>{UserName}</p>}
+      {isLogin && <p className={styles.UserName}>{UserName}</p>}
       <section className={styles.HeaderButtons}>
-        {!IsAuth && (
+        {!isLogin && (
           <button className={styles.Login} onClick={openAuthModal}>
             <img src={User} alt="Пользователь" />
             Войти
           </button>
         )}
 
-        {IsOpenAuth && !IsAuth && (
-          <AuthModal
-            isOpen={IsOpenAuth}
-            IsAuth={setIsAuth}
-            onCloseCart={closeAuthModal}
-          />
+        {IsOpenAuth && !isLogin && (
+          <AuthModal isOpen={IsOpenAuth} onCloseCart={closeAuthModal} />
         )}
 
-        {IsAuth && (
-          <button className={styles.Login} onClick={handleLogin}>
+        {isLogin && (
+          <button className={styles.Login} onClick={handleLogout}>
             <img src={User} alt="Пользователь" />
             Выйти
           </button>
