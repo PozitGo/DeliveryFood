@@ -1,5 +1,6 @@
 import React from "react";
 import Dish from "../Dish/Dish";
+import dishData from "../../../Data/dishData.json";
 
 import image1 from "../../../Images/Restaurant/image1.png";
 import image2 from "../../../Images/Restaurant/image2.png";
@@ -10,44 +11,7 @@ import image6 from "../../../Images/Restaurant/image6.png";
 
 import styles from "./DishList.module.css";
 
-const dishData = [
-  {
-    id: 1,
-    name: "Пицца плюс",
-    image: image1,
-    to: "/restaurant",
-  },
-  {
-    id: 2,
-    name: "Тануки",
-    image: image2,
-    to: "/restaurant",
-  },
-  {
-    id: 3,
-    name: "FoodBand",
-    image: image3,
-    to: "/restaurant",
-  },
-  {
-    id: 4,
-    name: "Жадина-пицца",
-    image: image4,
-    to: "/restaurant",
-  },
-  {
-    id: 5,
-    name: "Точка еды",
-    image: image5,
-    to: "/restaurant",
-  },
-  {
-    id: 6,
-    name: "PizzaBurger",
-    image: image6,
-    to: "/restaurant",
-  },
-];
+const images = [image1, image2, image3, image4, image5, image6];
 
 const DishList = () => {
   return (
@@ -56,7 +20,7 @@ const DishList = () => {
         <Dish
           key={dish.id}
           DishName={dish.name}
-          image={dish.image}
+          image={images[dish.id - 1]}
           to={dish.to}
         />
       ))}
