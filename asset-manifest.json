@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/DeliveryFood/static/css/main.a1922560.css",
-    "main.js": "/DeliveryFood/static/js/main.5845f0e9.js",
+    "main.js": "/DeliveryFood/static/js/main.e5a9da4a.js",
     "static/media/BurgerBanner.png": "/DeliveryFood/static/media/BurgerBanner.bc0cc0686cc625e91e8c.png",
     "static/media/image6.png": "/DeliveryFood/static/media/image6.b2fcf70f21104eb9c4a0.png",
     "static/media/image3.png": "/DeliveryFood/static/media/image3.8a13c2c42898ff816aa9.png",
@@ -13,10 +13,10 @@
     "static/media/SushiBanner.png": "/DeliveryFood/static/media/SushiBanner.c2ac8f64375f033b3fec.png",
     "index.html": "/DeliveryFood/index.html",
     "main.a1922560.css.map": "/DeliveryFood/static/css/main.a1922560.css.map",
-    "main.5845f0e9.js.map": "/DeliveryFood/static/js/main.5845f0e9.js.map"
+    "main.e5a9da4a.js.map": "/DeliveryFood/static/js/main.e5a9da4a.js.map"
   },
   "entrypoints": [
     "static/css/main.a1922560.css",
-    "static/js/main.5845f0e9.js"
+    "static/js/main.e5a9da4a.js"
   ]
 }
