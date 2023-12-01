@@ -13,10 +13,14 @@ import styles from "./DishList.module.css";
 
 const images = [image1, image2, image3, image4, image5, image6];
 
-const DishList = () => {
+const DishList = ({ searchTerm }) => {
+  const filteredDishes = dishData.filter((dish) =>
+    dish.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <section className={styles.Contain}>
-      {dishData.map((dish) => (
+      {filteredDishes.map((dish) => (
         <Dish
           key={dish.id}
           DishName={dish.name}
