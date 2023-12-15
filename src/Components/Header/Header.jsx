@@ -63,7 +63,7 @@ const Header = () => {
         <input placeholder="Адрес доставки" />
       </section>
 
-      {isLogin && <p className={styles.UserName}>{UserName}</p>}
+      {isLogin && <p className={styles.UserName}>{`Hi, ${UserName}`}</p>}
       <section className={styles.HeaderButtons}>
         {!isLogin && (
           <button className={styles.Login} onClick={openAuthModal}>
